@@ -1,0 +1,358 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    overflow: hidden;
+    background-color: rgba(136, 137, 206, 0.658);
+}
+
+#start-screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    background-image: url("images/warcelona2.png");
+}
+
+.leftImage {
+    position: absolute;
+    left: 40%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.4; /* Reduce opacity */
+    z-index: 1; /* Lower z-index */
+}
+
+.rightImage {
+    position: absolute;
+    right: 40%;
+    top: 50%;
+    transform: translate(50%, -50%);
+    opacity: 0.4; /* Reduce opacity */
+    z-index: 1; /* Lower z-index */
+}
+
+#siguientejuego, #restartGameButton {
+    font-family: 'Press Start 2P', cursive; 
+    background-color: black;
+    color: yellow; 
+    border: 2px solid yellow; 
+    padding: 10px 20px; 
+    text-align: center; 
+    text-decoration: none; 
+    display: inline-block; 
+    margin: 5px;
+    cursor: pointer; 
+    transition: background-color 0.3s, color 0.3s; 
+    z-index: 2; /* Ensure button is above images */
+}
+
+.alfinal {
+    display: none;
+}
+
+#siguientejuego:hover, #restartGameButton:hover {
+    background-color: yellow; 
+    color: black;
+}
+
+#timer {
+    position: absolute; 
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2em;
+    z-index: 2; /* Ensure timer is above images */
+}
+
+.start-button {
+    top: 70%;   
+    position: fixed;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    overflow: hidden;
+    font-family: 'Press Start 2P', cursive; 
+    font-size: 60px; 
+    color: #fff; 
+    background: none;   
+    text-align: center; 
+    line-height: 200px; 
+    animation: blinkingText 1.2s infinite;
+    z-index: 2; /* Ensure button is above images */
+}
+
+#title {
+    width: 50%; 
+    background-image: url("images/warcelonaButton.png");
+    height: auto;
+    transition: opacity 2s ease-in-out; 
+}
+
+@keyframes blinkingText {
+    0% { color: #fff; }
+    50% { color: transparent; }
+    100% { color: #fff; }
+}
+
+#gameContainer {
+    position: relative;
+    width: 99%;
+    height: 99%;
+    border: 1px solid black;
+    margin: 5px; 
+    z-index: 2; /* Ensure container is above images */
+}
+
+.character, .enemy {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    z-index: 2; /* Ensure elements are above images */
+}
+
+.character {    
+    background-image: url("images/LaiaPixel.png");
+    background-size: cover;    
+    width: 70px;
+    height: 70px;
+}
+
+.enemy {   
+    background-image: url("images/Delincuente1.png");
+    background-size: cover;   
+    width: 35px;
+    height: 40px; 
+}
+
+.charge-enemy {       
+    background-image: url("images/charge-enemy.png");
+    width: 35px;
+    height: 35px; 
+}
+
+.bulky {
+    width: 45px;
+    height: 50px;
+    background-image: url("images/Bulky.png");  
+}
+
+.tank {
+    width: 60px;
+    height: 60px;
+    background-image: url("images/Tanque.png");  
+}
+
+.orbital {
+    position: absolute;
+    width: 15px;
+    height: 20px;
+    background-image: url("images/rayo.png");
+    background-size: cover;
+    z-index: 2; /* Ensure elements are above images */
+}
+
+.explosion {
+    width: 35px;
+    height: 40px;   
+    z-index: 2; /* Ensure elements are above images */
+}
+
+.chasing-enemy {
+    width: 35px;
+    height: 40px;
+    background-image: url("images/chispas.png"); 
+    z-index: 2; /* Ensure elements are above images */
+}
+
+.projectile {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-image: url("images/bola.png");
+    background-size: cover;    
+    border-radius: 50%;
+    z-index: 2; /* Ensure elements are above images */
+}
+
+.area {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    color: red;
+    opacity: 50%;     
+    transition: opacity 0.25s ease-in-out;   
+    z-index: 2; /* Ensure elements are above images */
+}
+
+.health-bar-container {
+    position: absolute; 
+    bottom: 0px; 
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    z-index: 2; /* Ensure elements are above images */
+}
+
+.max-health-bar {
+    background-color: darkred; 
+    height: 10px; 
+    opacity: 0.6;
+    z-index: 2; /* Ensure elements are above images */
+}
+
+.current-health-bar {
+    background-color: red; 
+    height: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2; /* Ensure elements are above images */
+}
+
+#expContainer {
+    width: 80%;
+    height: 20px;
+    background-color: #ddd;
+    position: absolute;
+    bottom: 20px; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    z-index: 2; /* Ensure elements are above images */
+}
+
+#expBar {
+    height: 100%;
+    background-color: green;
+    width: 0%; 
+    z-index: 2; /* Ensure elements are above images */
+}
+
+#levelText {
+    color: black;
+    font-size: 16px;
+    font-weight: bold;    
+    position: absolute;
+    top: -25px; 
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2; /* Ensure elements are above images */
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); } 
+    50% { transform: scale(1.1); }
+}
+
+#upgrade-menu {
+    display: flex;
+    flex-direction: row; 
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: center; 
+    gap: 30px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 40px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    z-index: 1000;
+    width: 80%;
+    max-width: 900px; 
+    box-sizing: border-box;
+}
+
+.upgrade-option {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    padding: 20px;
+    width: calc(33% - 30px); 
+    box-sizing: border-box;
+    cursor: pointer;
+    text-align: center;
+    display: flex;
+    flex-direction: column; /* Texto en columna vertical */
+    z-index: 2; /* Ensure elements are above images */
+}
+
+.upgrade-option:hover {
+    background-color: rgba(255, 255, 255, 0.3); /* Efecto al pasar el ratón */
+}
+
+.upgrade-description {
+    color: white;
+    font-size: 0.9rem;
+    margin-top: 10px;
+    text-align: left;
+    z-index: 2; /* Ensure elements are above images */
+}
+
+.upgrade-title {
+    color: white;
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+    padding: 10px; /* Espacio alrededor del texto */
+    border: 2px solid yellow; /* Borde amarillo */
+    border-radius: 5px; /* Bordes redondeados para el aspecto de botón */
+    position: relative; /* Posición relativa para mover el título */
+    top: -20px; /* Mover el título hacia arriba fuera del rectángulo */
+    background-color: black;
+    width: calc(100% - 20px); /* Ajustar el ancho para considerar el padding */
+    box-sizing: border-box; /* Asegurar que el padding no afecte el ancho total */
+    left: 50%; /* Posicionamiento horizontal */
+    transform: translateX(-50%); /* Centrar el título horizontalmente */
+    z-index: 2; /* Ensure elements are above images */
+}
+
+#upgrade-menu button {
+    display: none;
+}
+
+.upgrade-panel {
+    background-color: #4CAF50;
+    border-radius: 10px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    width: 200px; 
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px; 
+    z-index: 2; /* Ensure elements are above images */
+}  
+
+.fade-in {
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 0s, opacity 0.5s ease-in;
+}
+
+.fade-out {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s 0.5s, opacity 0.5s ease-out;
+}
+
+#portraitContainer {
+    position: absolute;
+    top: 9%;
+    left: 4%;   
+    width: 270px; 
+    height: 270px;
+    background-image: url('images/LaiaRetrato.png');
+    background-size: cover;   
+    transform: translate(-50%, -50%);
+    z-index: 2; /* Ensure elements are above images */
+}

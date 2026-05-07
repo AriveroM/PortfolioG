@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warcelona</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+   
+    <div id="gameContainer">     
+        <div class="alfinal" id="alfinal">
+            <form action="../../php_controllers/laiaController.php" method="POST">
+                <input type="hidden" name="puntuacion" value="" id="puntuacion" />                
+            </form>
+        </div> 
+    </div>
+    <button id="restartGameButton" style="display: none;">Vuelve a empezar</button>
+    <div id="healthContainer"></div>
+    
+   
+    <img src="./images/move.png" alt="Image 1" class="leftImage">
+    <img src="./images/attack.png" alt="Image 2" class="rightImage">
+
+    <script type="module" src="main.js"></script> 
+</body>
+</html>
